@@ -12,8 +12,8 @@ namespace GeoQuiz
     {
         public Button FalseButton { get; set; }
         private Button TrueButton { get; set; }
-        private Button NextButton { get; set; }
-        private Button PrevButton { get; set; }
+        private ImageButton NextButton { get; set; }
+        private ImageButton PrevButton { get; set; }
         private TextView QuestionTextView { get; set; }
         private readonly Question[] questionBank =
         {
@@ -52,14 +52,14 @@ namespace GeoQuiz
             };
             QuestionTextView.SetText(questionBank[0].TextResID);
 
-            NextButton = FindViewById<Button>(Resource.Id.next_button);
+            NextButton = FindViewById<ImageButton>(Resource.Id.next_button);
             NextButton.Click += delegate
             {
                 currentIndex = (currentIndex + 1) % questionBank.Length;
                 UpdateQuestion();
             };
 
-            PrevButton = FindViewById<Button>(Resource.Id.previous_button);
+            PrevButton = FindViewById<ImageButton>(Resource.Id.previous_button);
             PrevButton.Click += delegate
             {
                 if (currentIndex == 0)
